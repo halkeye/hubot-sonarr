@@ -1,0 +1,9 @@
+/node_modules/
+
+.travis*
+History.md
+grunt.coffee
+grunt.js
+
+out/
+src/test

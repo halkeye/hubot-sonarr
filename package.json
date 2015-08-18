@@ -1,0 +1,40 @@
+{
+  "name": "hubot-sonarr",
+  "description": "Simple hubot script that grabs a url and outputs the title.",
+  "version": "0.1.1",
+  "homepage": "https://github.com/halkeye/hubot-sonarr",
+  "author": {
+    "name": "Gavin Mogan",
+    "email": "gavin@kodekoan.com",
+    "url": "http://www.kodekoan.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/halkeye/hubot-sonarr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/halkeye/hubot-sonarr/issues"
+  },
+  "license": "MIT",
+  "main": "src/scripts/hubot-sonarr",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha src/test"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "hubot": "^2.15.0",
+    "nock": "^2.10.0",
+    "should": "^7.0.4",
+    "sinon": "^1.15.4"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+  "dependencies": {
+    "request": "^2.60.0"
+  }
+}
