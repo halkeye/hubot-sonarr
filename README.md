@@ -9,7 +9,9 @@ Integration with [sonarr](https://sonarr.tv/). Includes notification of download
 2. Add it `hubot-sonarr` to your external-scripts.json file in your hubot directory
 
 ## Configuration
-_(Nothing yet)_
+
+   HUBOT_SONARR_HTTP - Sonarr's base url
+   HUBOT_SONARR_API_KEY - key key key
 
 ## Release History
 
