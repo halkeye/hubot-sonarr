@@ -27,7 +27,7 @@ module.exports = function(robot) {
       var shows = body.map(function(show) {
         return show.series.title + ' - ' + show.title;
       })
-      res.send("Upcoming shows: " + shows.join(",\n "));
+      res.send("Upcoming shows:\n" + shows.join(",\n "));
     }).catch(function(ex) {
       res.send("Encountered an error :( " + ex);
     });;

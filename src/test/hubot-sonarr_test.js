@@ -79,7 +79,7 @@ describe('hubot_sonarr', function() {
       });
       it('output title', function() {
         robot.adapter.send.args.should.not.be.empty
-        robot.adapter.send.args[0][1].should.eql("Upcoming shows: Bob's Burgers - Easy Com-mercial, Easy Go-mercial")
+        robot.adapter.send.args[0][1].should.eql("Upcoming shows:\nBob's Burgers - Easy Com-mercial, Easy Go-mercial")
       });
     });
     describe('multiple response', function(done) {
@@ -92,7 +92,7 @@ describe('hubot_sonarr', function() {
       });
       it('output title', function() {
         robot.adapter.send.args.should.not.be.empty
-        robot.adapter.send.args[0][1].should.eql("Upcoming shows: Extant - The Other Side,\n Mr. Robot - eps1.8_m1rr0r1ng.qt,\n Why? With Hannibal Buress - Episode 7")
+        robot.adapter.send.args[0][1].should.eql("Upcoming shows:\nExtant - The Other Side,\n Mr. Robot - eps1.8_m1rr0r1ng.qt,\n Why? With Hannibal Buress - Episode 7")
       });
     });
   });
