@@ -1,0 +1,222 @@
+
+[
+  {
+    "seriesId": 22,
+    "episodeFileId": 0,
+    "seasonNumber": 2,
+    "episodeNumber": 9,
+    "title": "The Other Side",
+    "airDate": "2015-08-19",
+    "airDateUtc": "2015-08-20T01:00:00Z",
+    "overview": "Memories resurface as Molly succumbs to the virus; Julie is confronted with hard choices; and the Hybrids seek revenge.",
+    "hasFile": false,
+    "monitored": true,
+    "series": {
+      "title": "Extant",
+      "sortTitle": "extant",
+      "seasonCount": 2,
+      "status": "continuing",
+      "overview": "Extant is an American science fiction television drama series created by Mickey Fisher and executive produced by Steven Spielberg. The story revolves around astronaut Molly Woods (Halle Berry) who returns home to her family inexplicably pregnant after 13 months in outer space on a solo mission.",
+      "network": "CBS",
+      "airTime": "21:00",
+      "images": [
+        {
+          "coverType": "fanart",
+          "url": "http://thetvdb.com/banners/fanart/original/272127-6.jpg"
+        },
+        {
+          "coverType": "banner",
+          "url": "http://thetvdb.com/banners/graphical/272127-g8.jpg"
+        },
+        {
+          "coverType": "poster",
+          "url": "http://thetvdb.com/banners/posters/272127-5.jpg"
+        }
+      ],
+      "seasons": [
+        {
+          "seasonNumber": 0,
+          "monitored": false
+        },
+        {
+          "seasonNumber": 1,
+          "monitored": false
+        },
+        {
+          "seasonNumber": 2,
+          "monitored": true
+        }
+      ],
+      "year": 2014,
+      "path": "T://TV/Extant",
+      "profileId": 3,
+      "seasonFolder": true,
+      "monitored": true,
+      "useSceneNumbering": false,
+      "runtime": 60,
+      "tvdbId": 272127,
+      "tvRageId": 37050,
+      "firstAired": "2014-07-09T00:00:00Z",
+      "lastInfoSync": "2015-08-18T16:56:47.771593Z",
+      "seriesType": "standard",
+      "cleanTitle": "extant",
+      "imdbId": "tt3155320",
+      "titleSlug": "extant",
+      "certification": "TV-14",
+      "genres": [
+        "Drama",
+        "Science-Fiction",
+        "Thriller"
+      ],
+      "tags": [],
+      "added": "2015-03-25T02:56:14.574386Z",
+      "ratings": {
+        "votes": 40,
+        "value": 7.4
+      },
+      "qualityProfileId": 3,
+      "id": 22
+    },
+    "id": 8573
+  },
+  {
+    "seriesId": 140,
+    "episodeFileId": 0,
+    "seasonNumber": 1,
+    "episodeNumber": 9,
+    "title": "eps1.8_m1rr0r1ng.qt",
+    "airDate": "2015-08-19",
+    "airDateUtc": "2015-08-20T02:00:00Z",
+    "overview": "The Evil Corp hack is threatened by a mystery man from Elliot's past.",
+    "hasFile": false,
+    "monitored": true,
+    "absoluteEpisodeNumber": 9,
+    "series": {
+      "title": "Mr. Robot",
+      "sortTitle": "mr robot",
+      "seasonCount": 2,
+      "status": "continuing",
+      "overview": "A contemporary and culturally resonant drama about a young programmer, Elliot, who suffers from a debilitating anti-social disorder and decides that he can only connect to people by hacking them.  He wields his skills as a weapon to protect the people that he cares about. Elliot will find himself in the intersection between a cybersecurity firm he works for and the underworld organizations that are recruiting him to bring down corporate America. Christian Slater stars in the title role of Mr. Robot, a mysterious anarchist who recruits Elliot into an underground hacker group.",
+      "network": "USA Network",
+      "airTime": "22:00",
+      "images": [
+        {
+          "coverType": "fanart",
+          "url": "http://thetvdb.com/banners/fanart/original/289590-5.jpg"
+        },
+        {
+          "coverType": "banner",
+          "url": "http://thetvdb.com/banners/graphical/289590-g5.jpg"
+        },
+        {
+          "coverType": "poster",
+          "url": "http://thetvdb.com/banners/posters/289590-3.jpg"
+        }
+      ],
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "monitored": true
+        },
+        {
+          "seasonNumber": 2,
+          "monitored": true
+        }
+      ],
+      "year": 2015,
+      "path": "T://TV/Mr. Robot",
+      "profileId": 5,
+      "seasonFolder": true,
+      "monitored": true,
+      "useSceneNumbering": false,
+      "runtime": 60,
+      "tvdbId": 289590,
+      "tvRageId": 42422,
+      "firstAired": "2015-06-24T00:00:00Z",
+      "lastInfoSync": "2015-08-18T16:57:16.14422Z",
+      "seriesType": "standard",
+      "cleanTitle": "mrrobot",
+      "imdbId": "tt4158110",
+      "titleSlug": "mr-robot",
+      "certification": "TV-14",
+      "genres": [
+        "Drama"
+      ],
+      "tags": [],
+      "added": "2015-06-28T06:31:30.81099Z",
+      "ratings": {
+        "votes": 42,
+        "value": 8.7
+      },
+      "qualityProfileId": 5,
+      "id": 140
+    },
+    "id": 8234
+  },
+  {
+    "seriesId": 146,
+    "episodeFileId": 0,
+    "seasonNumber": 1,
+    "episodeNumber": 7,
+    "title": "Episode 7",
+    "airDate": "2015-08-19",
+    "airDateUtc": "2015-08-20T02:30:00Z",
+    "hasFile": false,
+    "monitored": true,
+    "series": {
+      "title": "Why? With Hannibal Buress",
+      "sortTitle": "why with hannibal buress",
+      "seasonCount": 1,
+      "status": "continuing",
+      "overview": "“Why? With Hannibal Buress” celebrates Buress’ hilariously brilliant off-beat voice and point-of-view. If it’s in the zeitgeist, Buress will address it, providing his unique perspective on each week’s topic, answering the burning questions on his mind through stand-up, filmed segments, man-on-the-street interviews and special, in-studio guests. “Why? With Hannibal Buress” will be a weekly, half-hour series shot in front of a studio audience and each episode will tape the same week it airs. The series is executive produced by Buress, Jeff Stilson (“The Chris Rock Show,” “Da Ali G Show”) and Dave Becky of 3 Arts Entertainment.",
+      "network": "Comedy Central",
+      "airTime": "22:30",
+      "images": [
+        {
+          "coverType": "fanart",
+          "url": "http://thetvdb.com/banners/fanart/original/295988-2.jpg"
+        },
+        {
+          "coverType": "banner",
+          "url": "http://thetvdb.com/banners/graphical/295988-g.jpg"
+        },
+        {
+          "coverType": "poster",
+          "url": "http://thetvdb.com/banners/posters/295988-1.jpg"
+        }
+      ],
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "monitored": true
+        }
+      ],
+      "year": 2015,
+      "path": "T://TV/Why! With Hannibal Buress",
+      "profileId": 1,
+      "seasonFolder": true,
+      "monitored": true,
+      "useSceneNumbering": false,
+      "runtime": 30,
+      "tvdbId": 295988,
+      "tvRageId": 48139,
+      "firstAired": "2015-07-08T00:00:00Z",
+      "lastInfoSync": "2015-08-18T16:57:41.973321Z",
+      "seriesType": "standard",
+      "cleanTitle": "whywithhannibalburess",
+      "titleSlug": "why-with-hannibal-buress",
+      "genres": [
+        "Comedy"
+      ],
+      "tags": [],
+      "added": "2015-07-07T20:35:02.103085Z",
+      "ratings": {
+        "votes": 0,
+        "value": 0.0
+      },
+      "qualityProfileId": 1,
+      "id": 146
+    },
+    "id": 8556
+  }
+]

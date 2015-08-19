@@ -19,37 +19,18 @@
 //   halkeye
 
 'use strict'
-var Path = require('path');
-var Url = require('url');
-var request = require('request');
-
-var apiURL = function(uri) {
-  return Url.resolve(process.env.HUBOT_SONARR_HTTP,Path.join('api', uri));
-}
+var sonarr = require('./sonarr.js');
 
 module.exports = function(robot) {
   robot.hear(/!tonightTV/i, function(res) {
-    var options = {
-      url: apiURL('calendar'),
-      headers: {
-        'Accept': 'application/json',
-        'X-Api-Key': process.env.HUBOT_SONARR_API_KEY
-      }
-    };
-    request.get(options, function (err,httpres,body) {
-      if (err) {
-        res.send("Encountered an error :( " + err);
-        return
-      }
-      if (httpres.statusCode !== 200) {
-        res.send("Request didn't come back HTTP 200 (" + httpres.statusCode + "):(");
-        return;
-      }
-      var shows = JSON.parse(body).map(function(show) {
+    sonarr.fetchFromSonarr(sonarr.apiURL('calendar')).then(function(body) {
+      var shows = body.map(function(show) {
         return show.series.title + ' - ' + show.title;
       })
-      res.send("Upcoming shows: " + shows.join(', '));
-    });
+      res.send("Upcoming shows: " + shows.join(",\n "));
+    }).catch(function(ex) {
+      res.send("Encountered an error :( " + ex);
+    });;
   });
 
   robot.router.post('/hubot/sonarr/:room', function(req, res) {
