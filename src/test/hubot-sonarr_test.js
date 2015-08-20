@@ -27,6 +27,15 @@ var sonarr = require("../scripts/sonarr.js");
 
 describe("hubot_sonarr", function () {
   describe("!tonightTV", function () {
+    describe("shouldn't work inline", function () {
+      before(function () {
+        robot.adapter.send = sinon.spy();
+        send_message("aasdadasdasd !tonightTV");
+      });
+      it("output title", function () {
+        robot.adapter.send.args.should.be.empty;
+      });
+    });
     describe("failure", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
@@ -92,6 +101,15 @@ describe("hubot_sonarr", function () {
   });
 
   describe("!addTV batman", function () {
+    describe("shouldn't work inline", function () {
+      before(function () {
+        robot.adapter.send = sinon.spy();
+        send_message("aasdadasdasd !addTV batman");
+      });
+      it("output title", function () {
+        robot.adapter.send.args.should.be.empty;
+      });
+    });
     describe("failure", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);

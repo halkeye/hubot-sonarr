@@ -33,7 +33,7 @@ var sonarr = require("./sonarr.js");
  */
 
 module.exports = function (robot) {
-  robot.hear(/!tonightTV/i, function (res) {
+  robot.hear(/^!tonightTV/i, function (res) {
     sonarr.fetchFromSonarr(sonarr.apiURL("calendar")).then(function (body) {
       var shows = body.map(function (show) {
         return show.series.title + " - " + show.title;
@@ -44,7 +44,7 @@ module.exports = function (robot) {
     });
   });
 
-  robot.hear(/!addTV (.*)/i, function (res) {
+  robot.hear(/^!addTV (.*)/i, function (res) {
     sonarr.fetchFromSonarr(
       sonarr.apiURL("series/lookup", { term: res.match[1] })
     ).then(function (body) {
