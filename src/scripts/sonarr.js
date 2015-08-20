@@ -1,11 +1,16 @@
 'use strict';
 var Path = require('path');
 var Url = require('url');
+var QS = require('qs');
 var request = require('request');
 
 module.exports = {
-  apiURL: function apiUrl(uri) {
-    return Url.resolve(process.env.HUBOT_SONARR_HTTP,Path.join('api', uri));
+  apiURL: function apiUrl(uri, params) {
+    var str = Url.resolve(process.env.HUBOT_SONARR_HTTP,Path.join('api', uri));
+    if (params) {
+      str = str + "?" + QS.stringify(params);
+    }
+    return str;
   },
   fetchFromSonarr: function fetchFromSonarr(url) {
     return new Promise(function (resolve, reject) {

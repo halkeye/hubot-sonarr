@@ -1,0 +1,438 @@
+
+[
+  {
+    "title": "Batman",
+    "sortTitle": "batman",
+    "seasonCount": 3,
+    "status": "ended",
+    "overview": "Wealthy entrepreneur Bruce Wayne and his ward Dick Grayson lead a double life: they are actually crime fighting duo Batman and Robin. \nA secret Batpole in the Wayne mansion leads to the Batcave, where Police Commissioner Gordon often calls with the latest emergency threatening Gotham City. Racing the the scene of the crime in the Batmobile, Batman and Robin must (with the help of their trusty Bat-utility-belt) thwart the efforts of a variety of master criminals, including The Riddler, The Joker, Catwoman, and The Penguin.",
+    "network": "ABC (US)",
+    "airTime": "16:00",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/77871-12.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/77871-g2.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/77871-6.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/77871-6.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": false
+      }
+    ],
+    "year": 1966,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 30,
+    "tvdbId": 77871,
+    "tvRageId": 2719,
+    "firstAired": "1966-01-12T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batman",
+    "imdbId": "tt0059968",
+    "titleSlug": "batman",
+    "certification": "TV-PG",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science-Fiction",
+      "Fantasy"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 32,
+      "value": 8.2
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "Batman: The Brave and the Bold",
+    "sortTitle": "batman brave bold",
+    "seasonCount": 3,
+    "status": "ended",
+    "overview": "Batman isn't going at it alone this time! From Warner Bros. Animation comes the latest interpretation of the classic Batman franchise. Our caped crusader is teamed up with heroes from across the DC Universe, delivering nonstop action and adventure with a touch of comic relief. Blue Beetle, Green Arrow, Aquaman and countless others will get a chance to uphold justice alongside Batman. Though still based in Gotham, Batman will frequently find himself outside city limits, facing situations that are both unfamiliar and exhilarating. With formidable foes around every corner, Batman will still rely on his stealth, resourcefulness and limitless supply of cool gadgets to bring justice home.",
+    "network": "Cartoon Network",
+    "airTime": "19:30",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/82824-7.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/82824-g5.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/82824-10.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/82824-10.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": false
+      }
+    ],
+    "year": 2008,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 25,
+    "tvdbId": 82824,
+    "tvRageId": 20349,
+    "firstAired": "2008-11-14T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batmanbravebold",
+    "imdbId": "tt1213218",
+    "titleSlug": "batman-the-brave-and-the-bold",
+    "certification": "TV-G",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 25,
+      "value": 8.0
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "Batman: The Animated Series",
+    "sortTitle": "batman animated series",
+    "seasonCount": 4,
+    "status": "ended",
+    "overview": "Batman The Animated Series was a cartoon that premiered on September 5, 1992, based on the comic series created by Bob Kane, as well as the Burton movie adaptations. The series focused on the adventures of the alter ego of millionaire Bruce Wayne, Batman, a dark vigilante hero who defends Gotham City from a variety of creative and psychotic villains. The highly successful series merged stylish animation and fantastic storytelling more in the style of radio plays than typical cartoons.",
+    "network": "FOX (US)",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/76168-2.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/76168-g10.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/76168-11.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/76168-11.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 4,
+        "monitored": false
+      }
+    ],
+    "year": 1992,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 30,
+    "tvdbId": 76168,
+    "tvRageId": 2721,
+    "firstAired": "1992-09-05T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batmananimatedseries",
+    "imdbId": "tt0103359",
+    "titleSlug": "batman-the-animated-series",
+    "certification": "TV-PG",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children",
+      "Crime",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Science-Fiction",
+      "Suspense",
+      "Thriller"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 92,
+      "value": 9.2
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "Batman: The 1943 Serial",
+    "sortTitle": "batman 1943 serial",
+    "seasonCount": 1,
+    "status": "ended",
+    "overview": "Batman was a 15-chapter serial released in 1943 by Columbia Pictures. The serial starred Lewis Wilson as Batman and Douglas Croft as Robin. J. Carrol Naish played the villain, an original character named Dr. Daka. Rounding out the cast were Shirley Patterson as Linda Page (Bruce Wayne's love interest), and William Austin as Alfred. The plot is based on Batman, a US government agent, attempting to defeat the Japanese agent Dr. Daka, at the height of World War II.",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/93341-3.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/93341-g3.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/93341-1.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/93341-1.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      }
+    ],
+    "year": 1943,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 17,
+    "tvdbId": 93341,
+    "tvRageId": 0,
+    "firstAired": "1943-04-15T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batman1943serial",
+    "imdbId": "tt0035665",
+    "titleSlug": "batman-the-1943-serial",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 2,
+      "value": 9.5
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "The New Batman Adventures",
+    "sortTitle": "new batman adventures",
+    "seasonCount": 2,
+    "status": "ended",
+    "overview": "Also known as Batman Gotham Knights, this series takes place two years after the last episode of Batman: The Animated Series. Batman has continued to fight crime in Gotham City, but there have been some changes. Dick Grayson has become Nightwing; Tim Drake has taken over the role of Robin; and Batgirl has become apart of Batman's team. But the Dark Knight's greatest villains continue to plague Gotham City, so not everything has changed. This series aired alongside Superman as part of The New Batman/Superman Adventures on the WB. \nFirst Telecast: September 13, 1997\nLast Telecast: January 16, 1999 Episodes: 24 Color episodes (24 half-hour episodes, 2 Direct-to Video Movies)",
+    "network": "The WB",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/77084-6.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/77084-g.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/77084-4.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/77084-4.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      }
+    ],
+    "year": 1997,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 30,
+    "tvdbId": 77084,
+    "tvRageId": 2720,
+    "firstAired": "1997-09-01T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "thenewbatmanadventures",
+    "imdbId": "tt0118266",
+    "titleSlug": "the-new-batman-adventures",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 13,
+      "value": 8.8
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "Batman and Robin - The 1949 Serial",
+    "sortTitle": "batman robin 1949 serial",
+    "seasonCount": 1,
+    "status": "ended",
+    "overview": "Join superheroes Batman (Robert Lowery) and Robin (John Duncan) as they help Commissioner Gordon (Lyle Talbot) battle The Wizard, a villainous madman who steals a top-secret remote device allowing him to control all the moving vehicles in Gotham. Between The Wizard trying to destroy them and Bruce Wayne's love interest Vicky Vale (Jane Adams) working to uncover their identities, The Dynamic Duo careen from one cliffhanger to the next as they set out to save Gotham and foil The Wizard's plan for world domination.",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/144771-3.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/144771-g2.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/144771-3.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/144771-3.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      }
+    ],
+    "year": 1949,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 16,
+    "tvdbId": 144771,
+    "tvRageId": 0,
+    "firstAired": "1949-05-26T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batmanrobin1949serial",
+    "imdbId": "tt0041162",
+    "titleSlug": "batman-and-robin---the-1949-serial",
+    "genres": [
+      "Adventure"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 0,
+      "value": 0.0
+    },
+    "qualityProfileId": 0
+  },
+  {
+    "title": "Batman - Black and White Motion Comics",
+    "sortTitle": "batman black white motion comics",
+    "seasonCount": 2,
+    "status": "ended",
+    "overview": "Animated adaptations of Batman stories created by comic book legends Alex Ross, Dave Gibbons, Ted McKeever, Paul Levitz and others.",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/103851-1.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/103851-g2.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/103851-1.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/103851-1.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      }
+    ],
+    "year": 2008,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 5,
+    "tvdbId": 103851,
+    "tvRageId": 0,
+    "firstAired": "2008-12-09T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "batmanblackwhitemotioncomics",
+    "imdbId": "tt1458796",
+    "titleSlug": "batman---black-and-white-motion-comics",
+    "genres": [
+      "Animation"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 2,
+      "value": 5.5
+    },
+    "qualityProfileId": 0
+  }
+]

@@ -35,6 +35,7 @@
     "hubot-scripts"
   ],
   "dependencies": {
+    "qs": "^4.0.0",
     "request": "^2.60.0"
   }
 }
