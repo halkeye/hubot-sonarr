@@ -36,6 +36,7 @@
     "hubot-scripts"
   ],
   "dependencies": {
+    "bluebird": "^2.9.34",
     "qs": "^4.0.0",
     "request": "^2.60.0"
   }

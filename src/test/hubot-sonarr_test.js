@@ -10,6 +10,7 @@ require("coffee-script/register");
 var Hubot = require("hubot");
 var Path = require("path");
 var sinon = require("sinon");
+var Promise = require("bluebird");
 require("should");
 
 var adapterPath = Path.join(Path.dirname(require.resolve("hubot")), "src", "adapters");
