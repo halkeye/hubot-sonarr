@@ -1,13 +1,13 @@
-'use strict';
-var Path = require('path');
-var Url = require('url');
-var QS = require('qs');
-var request = require('request');
+"use strict";
+var Path = require("path");
+var Url = require("url");
+var QS = require("qs");
+var request = require("request");
 var Promise = require("bluebird");
 
 module.exports = {
   apiURL: function apiUrl(uri, params) {
-    var str = Url.resolve(process.env.HUBOT_SONARR_HTTP,Path.join('api', uri));
+    var str = Url.resolve(process.env.HUBOT_SONARR_HTTP, Path.join("api", uri));
     if (params) {
       str = str + "?" + QS.stringify(params);
     }
@@ -18,14 +18,14 @@ module.exports = {
       var options = {
         url: url,
         headers: {
-          'Accept': 'application/json',
-          'X-Api-Key': process.env.HUBOT_SONARR_API_KEY
+          "Accept": "application/json",
+          "X-Api-Key": process.env.HUBOT_SONARR_API_KEY
         }
       };
-      request.get(options, function (err,httpres,body) {
+      request.get(options, function (err, httpres, body) {
         if (err) { return reject(err); }
         if (httpres.statusCode !== 200) { return reject("Error Code: " + httpres.statusCode); }
-        return resolve(JSON.parse(body));;
+        return resolve(JSON.parse(body));
       });
     });
   }
