@@ -101,11 +101,11 @@ describe("hubot_sonarr", function () {
     });
   });
 
-  describe("!addTV batman", function () {
+  describe("!searchTV batman", function () {
     describe("shouldn't work inline", function () {
       before(function () {
         robot.adapter.send = sinon.spy();
-        send_message("aasdadasdasd !addTV batman");
+        send_message("aasdadasdasd !searchTV batman");
       });
       it("output title", function () {
         robot.adapter.send.args.should.be.empty;
@@ -119,7 +119,7 @@ describe("hubot_sonarr", function () {
         );
         robot.adapter.send = sinon.spy();
 
-        send_message("!addTV batman");
+        send_message("!searchTV batman");
       });
       it("output title", function () {
         robot.adapter.send.args.should.not.be.empty;
@@ -135,7 +135,7 @@ describe("hubot_sonarr", function () {
         );
         robot.adapter.send = sinon.spy();
 
-        send_message("!addTV batman");
+        send_message("!searchTV batman");
       });
       it("output title", function () {
         this.mock.verify();
@@ -150,7 +150,7 @@ describe("hubot_sonarr", function () {
           Promise.resolve(require(__dirname + "/http_responses/series_lookup_single.json"))
         );
         robot.adapter.send = sinon.spy();
-        send_message("!addTV batman");
+        send_message("!searchTV batman");
       });
       it("output title", function () {
         this.mock.verify();
@@ -168,7 +168,7 @@ describe("hubot_sonarr", function () {
           Promise.resolve(require(__dirname + "/http_responses/series_lookup_batman.json"))
         );
         robot.adapter.send = sinon.spy();
-        send_message("!addTV batman");
+        send_message("!searchTV batman");
       });
       it("output title", function () {
         this.mock.verify();

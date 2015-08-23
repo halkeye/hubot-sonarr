@@ -44,7 +44,7 @@ module.exports = function (robot) {
     });
   });
 
-  robot.hear(/^!addTV (.*)/i, function (res) {
+  robot.hear(/^!searchTV (.*)/i, function (res) {
     sonarr.fetchFromSonarr(
       sonarr.apiURL("series/lookup", { term: res.match[1] })
     ).then(function (body) {
@@ -53,7 +53,7 @@ module.exports = function (robot) {
       }
       var shows = body.map(function (show) {
         var uuid = show.titleSlug;
-        robot.brain.set("addTV_show_" + uuid, show);
+        robot.brain.set("searchTV_show_" + uuid, show);
         return [
           uuid + ")",
           show.title,
