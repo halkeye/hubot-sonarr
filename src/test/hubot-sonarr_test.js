@@ -12,6 +12,9 @@ var Path = require("path");
 var sinon = require("sinon");
 var Promise = require("bluebird");
 require("should");
+var request = require("supertest");
+var sonarr = require("../scripts/sonarr.js");
+var assign = require('object-assign');
 
 var adapterPath = Path.join(Path.dirname(require.resolve("hubot")), "src", "adapters");
 var robot = Hubot.loadBot(adapterPath, "shell", "true", "MochaHubot");
@@ -24,7 +27,95 @@ var send_message = function (msg) {
   robot.adapter.receive(new TextMessage(user, msg, "messageId"));
 };
 
-var sonarr = require("../scripts/sonarr.js");
+var notificationPOSTJSON = {
+  "EventType": "Test",
+  "Series": {
+    "TvdbId": 1234,
+    "TvRageId": 0,
+    "ImdbId": null,
+    "Title": "Test Title",
+    "CleanTitle": null,
+    "SortTitle": null,
+    "Status": 0,
+    "Overview": null,
+    "AirTime": null,
+    "Monitored": false,
+    "ProfileId": 0,
+    "SeasonFolder": false,
+    "LastInfoSync": null,
+    "Runtime": 0,
+    "Images": [],
+    "SeriesType": 0,
+    "Network": null,
+    "UseSceneNumbering": false,
+    "TitleSlug": null,
+    "Path": "Test Path",
+    "Year": 0,
+    "Ratings": null,
+    "Genres": [],
+    "Actors": [],
+    "Certification": null,
+    "RootFolderPath": null,
+    "Added": "0001-01-01T08:00:00Z",
+    "FirstAired": null,
+    "Profile": null,
+    "Seasons": [],
+    "Tags": [],
+    "AddOptions": null,
+    "Id": 1
+  },
+  "EpisodeFile": {
+    "SeriesId": 0,
+    "SeasonNumber": 1,
+    "RelativePath": "RelativePath",
+    "Path": "/linux/test/path/",
+    "Size": 0,
+    "DateAdded": "0001-01-01T08:00:00Z",
+    "SceneName": null,
+    "ReleaseGroup": null,
+    "Quality": {
+      "Quality": {
+        "Id": 0,
+        "Name": "blah"
+      },
+      "Revision": {
+        "Version": 1,
+        "Real": 0
+      }
+    },
+    "MediaInfo": null,
+    "Episodes": {
+      "Value": [
+        {
+          "SeriesId": 0,
+          "EpisodeFileId": 0,
+          "SeasonNumber": 0,
+          "EpisodeNumber": 1234,
+          "Title": null,
+          "AirDate": "2015-08-23 10:46:25 AM",
+          "AirDateUtc": "2015-08-23T17:46:25.9707345Z",
+          "Overview": null,
+          "Monitored": false,
+          "AbsoluteEpisodeNumber": null,
+          "SceneAbsoluteEpisodeNumber": null,
+          "SceneSeasonNumber": null,
+          "SceneEpisodeNumber": null,
+          "UnverifiedSceneNumbering": false,
+          "Ratings": null,
+          "Images": [],
+          "SeriesTitle": null,
+          "EpisodeFile": null,
+          "Series": null,
+          "HasFile": false,
+          "Id": 0
+        }
+      ],
+      "IsLoaded": true
+    },
+    "Series": null,
+    "Id": 1
+  }
+};
 
 describe("hubot_sonarr", function () {
   describe("!tonightTV", function () {
@@ -186,6 +277,60 @@ describe("hubot_sonarr", function () {
           ].join(", \n")
         );
       });
+    });
+  });
+  describe("Sonarr Webhook", function () {
+    it("Test Action", function (done) {
+      robot.adapter.send = sinon.spy();
+      request(robot.router)
+        .post("/hubot/sonarr/random")
+        .set("Content-Type", "application/json")
+        .send(notificationPOSTJSON)
+        .expect(200)
+        .end(function () {
+          robot.adapter.send.args.should.not.be.empty;
+          robot.adapter.send.args[0][1].should.eql(
+            "Now Tested: \nTest Title - S00E34 - "
+          );
+          done();
+        });
+    });
+    it("Downloaded Action", function (done) {
+      var data = assign({}, notificationPOSTJSON, {
+        "EventType": "Download"
+      });
+      robot.adapter.send = sinon.spy();
+      request(robot.router)
+        .post("/hubot/sonarr/random")
+        .set("Content-Type", "application/json")
+        .send(data)
+        .expect(200)
+        .end(function () {
+          robot.adapter.send.args.should.not.be.empty;
+          robot.adapter.send.args[0][1].should.eql(
+            "Now Downloaded: \nTest Title - S00E34 - "
+          );
+          done();
+        });
+    });
+    it("Rename Action", function (done) {
+      var data = assign({}, notificationPOSTJSON, {
+        "EventType": "Rename"
+      });
+      delete data.EpisodeFile;
+      robot.adapter.send = sinon.spy();
+      request(robot.router)
+        .post("/hubot/sonarr/random")
+        .set("Content-Type", "application/json")
+        .send(data)
+        .expect(200)
+        .end(function () {
+          robot.adapter.send.args.should.not.be.empty;
+          robot.adapter.send.args[0][1].should.eql(
+            "Now Renameed: Test Title"
+          );
+          done();
+        });
     });
   });
 
