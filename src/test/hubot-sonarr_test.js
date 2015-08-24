@@ -332,6 +332,25 @@ describe("hubot_sonarr", function () {
           done();
         });
     });
+    it("Grabbed Action", function (done) {
+      var data = {
+        EventType: "Grab",
+        Message: "Fear the Walking Dead - 1x01 - Pilot [WEBDL-1080p]"
+      };
+      robot.adapter.send = sinon.spy();
+      request(robot.router)
+        .post("/hubot/sonarr/random")
+        .set("Content-Type", "application/json")
+        .send(data)
+        .expect(200)
+        .end(function () {
+          robot.adapter.send.args.should.not.be.empty;
+          robot.adapter.send.args[0][1].should.eql(
+            "Now Grabed: Fear the Walking Dead - 1x01 - Pilot [WEBDL-1080p]"
+          );
+          done();
+        });
+    });
   });
 
 });

@@ -74,24 +74,31 @@ module.exports = function (robot) {
     var room = req.params.room || req.query.room;
     var data = req.body;
 
-    if (data.EpisodeFile) {
-      robot.messageRoom(
-        room,
-        "Now " + data.EventType + "ed: \n" +
-        data.EpisodeFile.Episodes.Value.map(function (episode) {
-          return util.format(
-            "%s - S%sE%s - %s",
-            data.Series.Title,
-            ("00" + episode.SeasonNumber).slice(-2),
-            ("00" + episode.EpisodeNumber).slice(-2),
-            episode.Title || ""
-          );
-        }).join(",\n ")
-      );
+    if (data.Series) {
+      if (data.EpisodeFile) {
+        robot.messageRoom(
+          room,
+          "Now " + data.EventType + "ed: \n" +
+          data.EpisodeFile.Episodes.Value.map(function (episode) {
+            return util.format(
+              "%s - S%sE%s - %s",
+              data.Series.Title,
+              ("00" + episode.SeasonNumber).slice(-2),
+              ("00" + episode.EpisodeNumber).slice(-2),
+              episode.Title || ""
+            );
+          }).join(",\n ")
+        );
+      } else {
+        robot.messageRoom(
+          room,
+          "Now " + data.EventType + "ed: " + data.Series.Title
+        );
+      }
     } else {
       robot.messageRoom(
         room,
-        "Now " + data.EventType + "ed: " + data.Series.Title
+        "Now " + data.EventType + "ed: " + data.Message
       );
     }
 
