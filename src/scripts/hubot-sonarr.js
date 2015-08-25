@@ -9,7 +9,8 @@
 //   HUBOT_SONARR_API_KEY - key key key
 //
 // Commands:
-//   None
+//   !searchTV <query>
+//   !tonightTV
 //
 // Notes:
 //   Copyright (c) 2015 Gavin Mogan
@@ -20,8 +21,7 @@
 
 "use strict";
 var sonarr = require("./sonarr.js");
-var util = require('util');
-
+var util = require("util");
 
 /*
  * commands

@@ -14,13 +14,14 @@ var Promise = require("bluebird");
 require("should");
 var request = require("supertest");
 var sonarr = require("../scripts/sonarr.js");
-var assign = require('object-assign');
+var assign = require("object-assign");
 
 var adapterPath = Path.join(Path.dirname(require.resolve("hubot")), "src", "adapters");
 var robot = Hubot.loadBot(adapterPath, "shell", "true", "MochaHubot");
 var TextMessage = require(Path.join(adapterPath, "../message")).TextMessage;
 
 require("../scripts/hubot-sonarr")(robot);
+robot.parseHelp(Path.join(__dirname, "../scripts/hubot-sonarr.js"));
 
 var send_message = function (msg) {
   var user = robot.brain.userForId("1", { name: "Shell", room: "Shell" });
@@ -118,6 +119,14 @@ var notificationPOSTJSON = {
 };
 
 describe("hubot_sonarr", function () {
+  describe("help", function () {
+    it("all commands", function () {
+      robot.helpCommands().should.eql([
+        "!searchTV <query>",
+        "!tonightTV"
+      ]);
+    });
+  });
   describe("!tonightTV", function () {
     describe("shouldn't work inline", function () {
       before(function () {
