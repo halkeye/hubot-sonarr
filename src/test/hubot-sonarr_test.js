@@ -21,7 +21,6 @@ var robot = Hubot.loadBot(adapterPath, "shell", "true", "MochaHubot");
 var TextMessage = require(Path.join(adapterPath, "../message")).TextMessage;
 
 require("../scripts/hubot-sonarr")(robot);
-robot.parseHelp(Path.join(__dirname, "../scripts/hubot-sonarr.js"));
 
 var send_message = function (msg) {
   var user = robot.brain.userForId("1", { name: "Shell", room: "Shell" });
@@ -122,8 +121,8 @@ describe("hubot_sonarr", function () {
   describe("help", function () {
     it("all commands", function () {
       robot.helpCommands().should.eql([
-        "!searchTV <query>",
-        "!tonightTV"
+        "!searchTV <query> - Searches sonarrs sources to find information about a tv show",
+        "!tonightTV - Reports what should download in the upcoming day"
       ]);
     });
   });

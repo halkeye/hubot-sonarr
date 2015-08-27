@@ -9,8 +9,8 @@
 //   HUBOT_SONARR_API_KEY - key key key
 //
 // Commands:
-//   !searchTV <query>
-//   !tonightTV
+//   !searchTV <query> - Searches sonarrs sources to find information about a tv show 
+//   !tonightTV - Reports what should download in the upcoming day
 //
 // Notes:
 //   Copyright (c) 2015 Gavin Mogan
@@ -34,6 +34,7 @@ var util = require("util");
  */
 
 module.exports = function (robot) {
+  robot.parseHelp(__filename);
   robot.hear(/^!tonightTV/i, function (res) {
     sonarr.fetchFromSonarr(sonarr.apiURL("calendar")).then(function (body) {
       var shows = body.map(function (show) {
