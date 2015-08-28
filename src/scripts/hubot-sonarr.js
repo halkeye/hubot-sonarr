@@ -75,34 +75,37 @@ module.exports = function (robot) {
     var room = req.params.room || req.query.room;
     var data = req.body;
 
-    if (data.Series) {
-      if (data.EpisodeFile) {
-        robot.messageRoom(
-          room,
-          "Now " + data.EventType + "ed: \n" +
-          data.EpisodeFile.Episodes.Value.map(function (episode) {
-            return util.format(
-              "%s - S%sE%s - %s",
-              data.Series.Title,
-              ("00" + episode.SeasonNumber).slice(-2),
-              ("00" + episode.EpisodeNumber).slice(-2),
-              episode.Title || ""
-            );
-          }).join(",\n ")
-        );
-      } else {
-        robot.messageRoom(
-          room,
-          "Now " + data.EventType + "ed: " + data.Series.Title
-        );
-      }
-    } else {
+    res.send("OK");
+
+    if (data.Message) {
       robot.messageRoom(
         room,
         "Now " + data.EventType + "ed: " + data.Message
       );
+      return;
     }
 
-    res.send("OK");
+
+    var episodeList = [];
+    if (data.Episodes) {
+      episodeList = data.Episodes.map(function (episode) {
+        var str = "S" + ("00" + episode.SeasonNumber).slice(-2) +
+          "E" + ("00" + episode.EpisodeNumber).slice(-2) +
+          " - " + episode.Title;
+        if (episode.Quality) {
+          str += " [" + episode.Quality + "]";
+        }
+        return str;
+      });
+    }
+
+    var output = "Now " + data.EventType + "ing " + data.Series.Title;
+    if (episodeList.length) {
+      output += ": ";
+      output += episodeList.join(", ");
+    }
+
+    robot.messageRoom(room, output);
+
   });
 };

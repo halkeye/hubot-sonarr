@@ -28,93 +28,10 @@ var send_message = function (msg) {
 };
 
 var notificationPOSTJSON = {
-  "EventType": "Test",
-  "Series": {
-    "TvdbId": 1234,
-    "TvRageId": 0,
-    "ImdbId": null,
-    "Title": "Test Title",
-    "CleanTitle": null,
-    "SortTitle": null,
-    "Status": 0,
-    "Overview": null,
-    "AirTime": null,
-    "Monitored": false,
-    "ProfileId": 0,
-    "SeasonFolder": false,
-    "LastInfoSync": null,
-    "Runtime": 0,
-    "Images": [],
-    "SeriesType": 0,
-    "Network": null,
-    "UseSceneNumbering": false,
-    "TitleSlug": null,
-    "Path": "Test Path",
-    "Year": 0,
-    "Ratings": null,
-    "Genres": [],
-    "Actors": [],
-    "Certification": null,
-    "RootFolderPath": null,
-    "Added": "0001-01-01T08:00:00Z",
-    "FirstAired": null,
-    "Profile": null,
-    "Seasons": [],
-    "Tags": [],
-    "AddOptions": null,
-    "Id": 1
-  },
-  "EpisodeFile": {
-    "SeriesId": 0,
-    "SeasonNumber": 1,
-    "RelativePath": "RelativePath",
-    "Path": "/linux/test/path/",
-    "Size": 0,
-    "DateAdded": "0001-01-01T08:00:00Z",
-    "SceneName": null,
-    "ReleaseGroup": null,
-    "Quality": {
-      "Quality": {
-        "Id": 0,
-        "Name": "blah"
-      },
-      "Revision": {
-        "Version": 1,
-        "Real": 0
-      }
-    },
-    "MediaInfo": null,
-    "Episodes": {
-      "Value": [
-        {
-          "SeriesId": 0,
-          "EpisodeFileId": 0,
-          "SeasonNumber": 0,
-          "EpisodeNumber": 1234,
-          "Title": null,
-          "AirDate": "2015-08-23 10:46:25 AM",
-          "AirDateUtc": "2015-08-23T17:46:25.9707345Z",
-          "Overview": null,
-          "Monitored": false,
-          "AbsoluteEpisodeNumber": null,
-          "SceneAbsoluteEpisodeNumber": null,
-          "SceneSeasonNumber": null,
-          "SceneEpisodeNumber": null,
-          "UnverifiedSceneNumbering": false,
-          "Ratings": null,
-          "Images": [],
-          "SeriesTitle": null,
-          "EpisodeFile": null,
-          "Series": null,
-          "HasFile": false,
-          "Id": 0
-        }
-      ],
-      "IsLoaded": true
-    },
-    "Series": null,
-    "Id": 1
-  }
+  "test": {"EventType":"Test","Message":"This is testing the webhook"},
+  "grab": {"EventType":"Grab","Series":{"Id":2,"Title":"Gravity Falls","Path":"C:\\Temp\\sonarr\\Gravity Falls","TvdbId":259972},"Episodes":[{"Id":67,"EpisodeNumber":14,"SeasonNumber":2,"Title":"The Stanchurian Candidate","AirDate":"2015-08-24","AirDateUtc":"2015-08-25T01:30:00Z","Quality":"WEBDL-1080p","QualityVersion":1,"ReleaseGroup":"iT00NZ","SceneName":null}]},
+  "download": {"EventType":"Download","Series":{"Id":2,"Title":"Gravity Falls","Path":"C:\\Temp\\sonarr\\Gravity Falls","TvdbId":259972},"Episodes":[{"Id":67,"EpisodeNumber":14,"SeasonNumber":2,"Title":"The Stanchurian Candidate","AirDate":"2015-08-24","AirDateUtc":"2015-08-25T01:30:00Z","Quality":"HDTV-720p","QualityVersion":1,"ReleaseGroup":null,"SceneName":null}]},
+  "rename": {"EventType":"Rename","Series":{"Id":2,"Title":"Gravity Falls","Path":"C:\\Temp\\sonarr\\Gravity Falls","TvdbId":259972},"Episode":null}
 };
 
 describe("hubot_sonarr", function () {
@@ -293,68 +210,57 @@ describe("hubot_sonarr", function () {
       request(robot.router)
         .post("/hubot/sonarr/random")
         .set("Content-Type", "application/json")
-        .send(notificationPOSTJSON)
+        .send(notificationPOSTJSON.test)
         .expect(200)
         .end(function () {
           robot.adapter.send.args.should.not.be.empty;
           robot.adapter.send.args[0][1].should.eql(
-            "Now Tested: \nTest Title - S00E34 - "
+            "Now Tested: This is testing the webhook"
           );
           done();
         });
     });
     it("Downloaded Action", function (done) {
-      var data = assign({}, notificationPOSTJSON, {
-        "EventType": "Download"
-      });
       robot.adapter.send = sinon.spy();
       request(robot.router)
         .post("/hubot/sonarr/random")
         .set("Content-Type", "application/json")
-        .send(data)
+        .send(notificationPOSTJSON.download)
         .expect(200)
         .end(function () {
           robot.adapter.send.args.should.not.be.empty;
           robot.adapter.send.args[0][1].should.eql(
-            "Now Downloaded: \nTest Title - S00E34 - "
+            "Now Downloading Gravity Falls: S02E14 - The Stanchurian Candidate [HDTV-720p]"
           );
           done();
         });
     });
     it("Rename Action", function (done) {
-      var data = assign({}, notificationPOSTJSON, {
-        "EventType": "Rename"
-      });
-      delete data.EpisodeFile;
       robot.adapter.send = sinon.spy();
       request(robot.router)
         .post("/hubot/sonarr/random")
         .set("Content-Type", "application/json")
-        .send(data)
+        .send(notificationPOSTJSON.rename)
         .expect(200)
         .end(function () {
           robot.adapter.send.args.should.not.be.empty;
           robot.adapter.send.args[0][1].should.eql(
-            "Now Renameed: Test Title"
+            "Now Renameing Gravity Falls"
           );
           done();
         });
     });
     it("Grabbed Action", function (done) {
-      var data = {
-        EventType: "Grab",
-        Message: "Fear the Walking Dead - 1x01 - Pilot [WEBDL-1080p]"
-      };
       robot.adapter.send = sinon.spy();
       request(robot.router)
         .post("/hubot/sonarr/random")
         .set("Content-Type", "application/json")
-        .send(data)
+        .send(notificationPOSTJSON.grab)
         .expect(200)
         .end(function () {
           robot.adapter.send.args.should.not.be.empty;
           robot.adapter.send.args[0][1].should.eql(
-            "Now Grabed: Fear the Walking Dead - 1x01 - Pilot [WEBDL-1080p]"
+            "Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]"
           );
           done();
         });
