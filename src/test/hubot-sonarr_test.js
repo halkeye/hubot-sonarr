@@ -9,8 +9,11 @@ process.env.EXPRESS_PORT = process.env.PORT = 0;
 require("coffee-script/register");
 var Hubot = require("hubot");
 var Path = require("path");
-var sinon = require("sinon");
+
 require('es6-promise').polyfill();
+
+var sinon = require("sinon");
+var sinonAsPromised = require('sinon-as-promised');
 require("should");
 var request = require("supertest");
 var sonarr = require("../scripts/sonarr.js");
@@ -66,22 +69,22 @@ describe("hubot_sonarr", function () {
     });
     describe("failure", function () {
       before(function () {
-        this.mock = sinon.stub(sonarr, "fetchFromSonarr");
-        stub.onCall(0).reject("Error 500");
+        this.mock = sinon.mock(sonarr);
+        this.mock.expects("fetchFromSonarr").once().rejects("Error 500");
         robot.adapter.send = sinon.spy();
 
         send_message("!tonightTV");
       });
       it("output title", function () {
         robot.adapter.send.args.should.not.be.empty;
-        robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error 500");
+        robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error: Error 500");
         this.mock.restore();
       });
     });
     describe("empty response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(Promise.resolve([]));
+        this.mock.expects("fetchFromSonarr").once().resolves([]);
         robot.adapter.send = sinon.spy();
 
         send_message("!tonightTV");
