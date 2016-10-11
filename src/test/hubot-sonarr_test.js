@@ -265,6 +265,26 @@ describe("hubot_sonarr", function () {
           done();
         });
     });
+    it("Grabbed Action - Multi Channel Mode", function (done) {
+      robot.adapter.send = sinon.spy();
+      request(robot.router)
+        .post("/hubot/sonarr/random?multiRoom=true")
+        .set("Content-Type", "application/json")
+        .send(notificationPOSTJSON.grab)
+        .expect(200)
+        .end(function () {
+          robot.adapter.send.args.should.not.be.empty;
+          robot.adapter.send.args[0][0].room.should.eql("random");
+          robot.adapter.send.args[0][1].should.eql(
+            "Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]"
+          );
+          robot.adapter.send.args[1][0].room.should.eql("gravity_falls");
+          robot.adapter.send.args[1][1].should.eql(
+            "Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]"
+          );
+          done();
+        });
+    });
   });
 
 });
