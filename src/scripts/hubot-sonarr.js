@@ -36,14 +36,15 @@ var util = require("util");
 module.exports = function (robot) {
   robot.parseHelp(__filename);
   robot.hear(/^!tonightTV/i, function (res) {
-    sonarr.fetchFromSonarr(sonarr.apiURL("calendar")).then(function (body) {
-      var shows = body.map(function (show) {
-        return show.series.title + " - " + show.title;
+    sonarr.fetchFromSonarr(sonarr.apiURL("calendar"))
+      .then(function (body) {
+        var shows = body.map(function (show) {
+          return show.series.title + " - " + show.title;
+        });
+        res.send("Upcoming shows:\n" + shows.join(",\n "));
+      }).catch(function (ex) {
+        res.send("Encountered an error :( " + ex);
       });
-      res.send("Upcoming shows:\n" + shows.join(",\n "));
-    }).catch(function (ex) {
-      res.send("Encountered an error :( " + ex);
-    });
   });
 
   robot.hear(/^!searchTV (.*)/i, function (res) {

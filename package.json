@@ -39,7 +39,7 @@
     "hubot-scripts"
   ],
   "dependencies": {
-    "bluebird": "^3.4.1",
+    "es6-promise": "^4.0.5",
     "qs": "^6.2.1",
     "request": "^2.60.0"
   }

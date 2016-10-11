@@ -10,7 +10,7 @@ require("coffee-script/register");
 var Hubot = require("hubot");
 var Path = require("path");
 var sinon = require("sinon");
-var Promise = require("bluebird");
+require('es6-promise').polyfill();
 require("should");
 var request = require("supertest");
 var sonarr = require("../scripts/sonarr.js");
@@ -35,6 +35,17 @@ var notificationPOSTJSON = {
 };
 
 describe("hubot_sonarr", function () {
+  beforeEach(function() {
+    if (this.mock) {
+        if (this.mock.restore) {
+          this.mock.restore();
+        } else if (this.mock.reset) {
+          this.mock.reset();
+        } else {
+          throw new Error("Not sure what to do with this mock");
+        }
+    }
+  });
   describe("help", function () {
     it("all commands", function () {
       robot.helpCommands().should.eql([
@@ -55,8 +66,8 @@ describe("hubot_sonarr", function () {
     });
     describe("failure", function () {
       before(function () {
-        this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(Promise.reject("Error 500"));
+        this.mock = sinon.stub(sonarr, "fetchFromSonarr");
+        stub.onCall(0).reject("Error 500");
         robot.adapter.send = sinon.spy();
 
         send_message("!tonightTV");
@@ -64,7 +75,7 @@ describe("hubot_sonarr", function () {
       it("output title", function () {
         robot.adapter.send.args.should.not.be.empty;
         robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error 500");
-        this.mock.verify();
+        this.mock.restore();
       });
     });
     describe("empty response", function () {

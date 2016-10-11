@@ -3,7 +3,7 @@ var Path = require("path");
 var Url = require("url");
 var QS = require("qs");
 var request = require("request");
-var Promise = require("bluebird");
+require('es6-promise').polyfill();
 
 module.exports = {
   apiURL: function apiUrl(uri, params) {
