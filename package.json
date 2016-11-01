@@ -18,7 +18,7 @@
   "license": "MIT",
   "main": "src/scripts/hubot-sonarr",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "scripts": {
     "test": "mocha src/test"
