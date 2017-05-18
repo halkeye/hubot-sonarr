@@ -21,15 +21,19 @@
     "node": ">= 4"
   },
   "scripts": {
-    "test": "mocha src/test"
+    "test": "eslint . && mocha src/test"
   },
   "devDependencies": {
     "coffee-script": "^1.9.3",
     "eslint": "^3.7.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "hubot": "^2.15.0",
     "mocha": "^3.0.2",
     "nock": "^9.0.2",
-    "object-assign": "^4.0.1",
     "should": "^11.1.1",
     "sinon": "^2.2.0",
     "supertest": "^3.0.0"
