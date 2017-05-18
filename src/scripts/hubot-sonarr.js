@@ -35,8 +35,9 @@ var util = require("util");
 
 module.exports = function (robot) {
   robot.parseHelp(__filename);
+  robot.sonarr = sonarr;
   robot.hear(/^!tonightTV/i, function (res) {
-    sonarr.fetchFromSonarr(sonarr.apiURL("calendar"))
+    robot.sonarr.fetchFromSonarr(robot.sonarr.apiURL("calendar"))
       .then(function (body) {
         var shows = body.map(function (show) {
           return show.series.title + " - " + show.title;
@@ -48,8 +49,8 @@ module.exports = function (robot) {
   });
 
   robot.hear(/^!searchTV (.*)/i, function (res) {
-    sonarr.fetchFromSonarr(
-      sonarr.apiURL("series/lookup", { term: res.match[1] })
+    robot.sonarr.fetchFromSonarr(
+      robot.sonarr.apiURL("series/lookup", { term: res.match[1] })
     ).then(function (body) {
       if (body.length === 0) {
         res.send("No results found for [" + res.match[1] + "]");

@@ -31,8 +31,7 @@
     "nock": "^9.0.0",
     "object-assign": "^4.0.1",
     "should": "^11.1.1",
-    "sinon": "^2.0.0",
-    "sinon-as-promised": "^4.0.2",
+    "sinon": "^2.2.0",
     "supertest": "^3.0.0"
   },
   "keywords": [

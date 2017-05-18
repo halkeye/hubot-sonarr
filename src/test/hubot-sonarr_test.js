@@ -13,7 +13,6 @@ var Path = require("path");
 require('es6-promise').polyfill();
 
 var sinon = require("sinon");
-var sinonAsPromised = require('sinon-as-promised');
 require("should");
 var request = require("supertest");
 var sonarr = require("../scripts/sonarr.js");
@@ -70,7 +69,7 @@ describe("hubot_sonarr", function () {
     describe("failure", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().rejects("Error 500");
+        this.mock.expects("fetchFromSonarr").once().rejects(new Error("Error 500"));
         robot.adapter.send = sinon.spy();
 
         send_message("!tonightTV");
@@ -78,13 +77,13 @@ describe("hubot_sonarr", function () {
       it("output title", function () {
         robot.adapter.send.args.should.not.be.empty;
         robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error: Error 500");
-        this.mock.restore();
+        this.mock.verify();
       });
     });
     describe("empty response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().resolves([]);
+        this.mock.expects("fetchFromSonarr").once().resolves([])
         robot.adapter.send = sinon.spy();
 
         send_message("!tonightTV");
@@ -97,8 +96,8 @@ describe("hubot_sonarr", function () {
     describe("single response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.resolve(require(__dirname + "/http_responses/calendar_single_series.json"))
+        this.mock.expects("fetchFromSonarr").once().resolves(
+          require(__dirname + "/http_responses/calendar_single_series.json")
         );
         robot.adapter.send = sinon.spy();
         send_message("!tonightTV");
@@ -114,8 +113,8 @@ describe("hubot_sonarr", function () {
     describe("multiple response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.resolve(require(__dirname + "/http_responses/calendar_multiple_series.json"))
+        this.mock.expects("fetchFromSonarr").once().resolves(
+          require(__dirname + "/http_responses/calendar_multiple_series.json")
         );
         robot.adapter.send = sinon.spy();
         send_message("!tonightTV");
@@ -144,40 +143,38 @@ describe("hubot_sonarr", function () {
     describe("failure", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.reject("Error 500")
-        );
+        this.mock.expects("fetchFromSonarr").once().rejects(new Error("Error 500"));
         robot.adapter.send = sinon.spy();
 
         send_message("!searchTV batman");
       });
       it("output title", function () {
         robot.adapter.send.args.should.not.be.empty;
-        robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error 500");
+        robot.adapter.send.args[0][1].should.eql("Encountered an error :( Error: Error 500");
         this.mock.verify();
       });
     });
     describe("empty response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.resolve(require(__dirname + "/http_responses/series_lookup_empty.json"))
+        this.mock.expects("fetchFromSonarr").once().resolves(
+          require(__dirname + "/http_responses/series_lookup_empty.json")
         );
         robot.adapter.send = sinon.spy();
 
         send_message("!searchTV batman");
       });
       it("output title", function () {
-        this.mock.verify();
         robot.adapter.send.args.should.not.be.empty;
         robot.adapter.send.args[0][1].should.eql("No results found for [batman]");
+        this.mock.verify();
       });
     });
     describe("single response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.resolve(require(__dirname + "/http_responses/series_lookup_single.json"))
+        this.mock.expects("fetchFromSonarr").once().resolves(
+          require(__dirname + "/http_responses/series_lookup_single.json")
         );
         robot.adapter.send = sinon.spy();
         send_message("!searchTV batman");
@@ -194,8 +191,8 @@ describe("hubot_sonarr", function () {
     describe("multiple response", function () {
       before(function () {
         this.mock = sinon.mock(sonarr);
-        this.mock.expects("fetchFromSonarr").once().returns(
-          Promise.resolve(require(__dirname + "/http_responses/series_lookup_batman.json"))
+        this.mock.expects("fetchFromSonarr").once().resolves(
+          require(__dirname + "/http_responses/series_lookup_batman.json")
         );
         robot.adapter.send = sinon.spy();
         send_message("!searchTV batman");
