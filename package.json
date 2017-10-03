@@ -32,7 +32,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "hubot": "^2.15.0",
-    "mocha": "^3.4.1",
+    "mocha": "^4.0.0",
     "nock": "^9.0.2",
     "should": "^13.0.0",
     "sinon": "^4.0.0",
