@@ -33,7 +33,6 @@ var sonarr = require('./sonarr.js');
  */
 
 module.exports = function (robot) {
-  robot.parseHelp(__filename);
   robot.sonarr = sonarr;
   robot.hear(/^!tonightTV/i, function (res) {
     robot.sonarr.fetchFromSonarr(robot.sonarr.apiURL('calendar'))
@@ -53,6 +52,7 @@ module.exports = function (robot) {
     ).then(function (body) {
       if (body.length === 0) {
         res.send('No results found for [' + res.match[1] + ']');
+        return;
       }
       var shows = body.map(function (show) {
         var uuid = show.titleSlug;
@@ -89,8 +89,10 @@ module.exports = function (robot) {
       return;
     }
 
-    if (data && data.Series && data.Series.Title) {
-      rooms.push(data.Series.Title.toLowerCase().replace(/\W+/g, '_').substring(0, 21));
+    if (req.query.multiRoom) {
+      if (data && data.Series && data.Series.Title) {
+        rooms.push(data.Series.Title.toLowerCase().replace(/\W+/g, '_').substring(0, 21));
+      }
     }
     rooms.forEach(function (room) {
       var episodeList = [];

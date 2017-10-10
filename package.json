@@ -16,7 +16,7 @@
     "url": "https://github.com/halkeye/hubot-sonarr/issues"
   },
   "license": "MIT",
-  "main": "src/scripts/hubot-sonarr",
+  "main": "index.js",
   "engines": {
     "node": ">= 4"
   },
@@ -24,16 +24,17 @@
     "test": "eslint . && mocha src/test"
   },
   "devDependencies": {
-    "coffee-script": "^1.12.6",
+    "coffee-script": "^1.12.7",
     "eslint": "^4.1.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "hubot": "^2.15.0",
+    "hubot-test-helper": "^1.8.1",
     "mocha": "^4.0.1",
-    "nock": "^9.0.2",
+    "nock": "^9.0.22",
     "should": "^13.0.0",
     "sinon": "^4.0.0",
     "supertest": "^3.0.0"
@@ -43,8 +44,8 @@
     "hubot-scripts"
   ],
   "dependencies": {
-    "es6-promise": "^4.0.5",
-    "qs": "^6.2.1",
-    "request": "^2.60.0"
+    "es6-promise": "^4.1.1",
+    "qs": "^6.5.1",
+    "request": "^2.83.0"
   }
 }
