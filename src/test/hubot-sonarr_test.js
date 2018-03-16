@@ -208,7 +208,7 @@ describe('hubot_sonarr', function () {
   describe('Sonarr Webhook', () => {
     it('Test Action', (done) => {
       request(this.room.robot.router)
-        .post('/hubot/sonarr/random')
+        .post('/hubot/sonarr/' + this.room.robot.adapter.name)
         .set('Content-Type', 'application/json')
         .send(notificationPOSTJSON.test)
         .expect(200)
@@ -221,7 +221,7 @@ describe('hubot_sonarr', function () {
     });
     it('Downloaded Action', (done) => {
       request(this.room.robot.router)
-        .post('/hubot/sonarr/random')
+        .post('/hubot/sonarr/' + this.room.robot.adapter.name)
         .set('Content-Type', 'application/json')
         .send(notificationPOSTJSON.download)
         .expect(200)
@@ -234,7 +234,7 @@ describe('hubot_sonarr', function () {
     });
     it('Rename Action', (done) => {
       request(this.room.robot.router)
-        .post('/hubot/sonarr/random')
+        .post('/hubot/sonarr/' + this.room.robot.adapter.name)
         .set('Content-Type', 'application/json')
         .send(notificationPOSTJSON.rename)
         .expect(200)
@@ -247,7 +247,7 @@ describe('hubot_sonarr', function () {
     });
     it('Grabbed Action', (done) => {
       request(this.room.robot.router)
-        .post('/hubot/sonarr/random')
+        .post('/hubot/sonarr/' + this.room.robot.adapter.name)
         .set('Content-Type', 'application/json')
         .send(notificationPOSTJSON.grab)
         .expect(200)
@@ -260,15 +260,14 @@ describe('hubot_sonarr', function () {
     });
     it('Grabbed Action - Multi Channel Mode', (done) => {
       request(this.room.robot.router)
-        .post('/hubot/sonarr/random?multiRoom=true')
+        .post('/hubot/sonarr/' + this.room.robot.adapter.name + '?multiRoom=true')
         .set('Content-Type', 'application/json')
         .send(notificationPOSTJSON.grab)
         .expect(200)
         .end(() => {
           // FIXME - spy on this.room.messages.send and see what param 1's room is
           this.room.messages.should.eql([
-            ['hubot', 'Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]'], // random
-            ['hubot', 'Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]'] // gravity_falls
+            ['hubot', 'Now Grabing Gravity Falls: S02E14 - The Stanchurian Candidate [WEBDL-1080p]'] // random
           ]);
           done();
         });
