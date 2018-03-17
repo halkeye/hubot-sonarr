@@ -42,6 +42,7 @@ module.exports = function (robot) {
         });
         res.send('Upcoming shows:\n' + shows.join(',\n '));
       }).catch(function (ex) {
+        console.log('catch');
         res.send('Encountered an error :( ' + ex);
       });
   });

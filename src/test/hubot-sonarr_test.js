@@ -59,12 +59,12 @@ describe('hubot_sonarr', function () {
         this.mock = sinon.mock(sonarr);
         this.mock.expects('fetchFromSonarr').once().rejects(new Error('Error 500'));
 
-        return this.room.user.say('Shell', '!tonightTV').then(() => {
+        return this.room.user.say('Shell', '!tonightTV').then(() => sleep(1)).then(() => {
+          this.mock.verify();
           this.room.messages.should.eql([
             ['Shell', '!tonightTV'],
             ['hubot', 'Encountered an error :( Error: Error 500']
           ]);
-          this.mock.verify();
         });
       });
     });
