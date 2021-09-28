@@ -1,3 +1,5 @@
+# Migrated to https://github.com/halkeye/hubot-plugins/tree/master/packages/hubot-sonarr
+
 # hubot-sonarr
 
 [![Build Status](https://travis-ci.org/halkeye/hubot-sonarr.png)](https://travis-ci.org/halkeye/hubot-sonarr)
